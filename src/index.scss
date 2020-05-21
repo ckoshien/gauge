@@ -7,3 +7,11 @@ body{
   font-weight: bold;
   letter-spacing: 2px;
 }
+
+.status{
+  background: linear-gradient(to top, #3efefc 30%,blue);
+  height: 500px;
+  width: 888px;
+  position: relative;
+  overflow: hidden;
+}
