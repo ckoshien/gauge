@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 function App() {
   const [count , setCount ] = useState(3000);
@@ -104,6 +104,16 @@ function App() {
     );
   }
 
+  let fontColor = useCallback(()=>{
+    if(count<10000){
+      return 'black';
+    }else if(count > 10000 && count < 15000){
+      return 'blue';
+    }else{
+      return 'red'
+    }
+  },[count])
+
   return (
     <div
       style={{
@@ -136,15 +146,24 @@ function App() {
       >
         <span
           style={{
-            fontSize:70
+            fontSize:70,
+            color:fontColor()
           }}
         >{(count/100).toString().split('.')[0]}</span>
         <span
           style={{
-            fontSize:40
+            fontSize:40,
+            color:fontColor()
           }}
         >
-          .{(count/100).toFixed(2).toString().split('.')[1]}/100
+          .{(count/100).toFixed(2).toString().split('.')[1]}
+         </span> 
+         <span
+          style={{
+            fontSize:40
+          }}
+         >
+          /100
         </span>
       </div>
       <div
