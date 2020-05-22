@@ -1,14 +1,22 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
+import { storeContext, useStore } from './context/StoreContext';
 
 function Charge() {
+  let { charging, setCharging } = useStore();
   const [count , setCount ] = useState(3000);
   useEffect(()=>{
+    console.log(charging);
     setTimeout(()=>{
-      if(count < 15000){
+      
+      if(count < 15000 && charging){
         setCount(count + 10);
+      }else if(count < 3000){
+        setCharging(true);
+      }else if(!charging){
+        setCount(count - 10);
       }
     },20)
-  },[count]);
+  },[count,charging]);
 
   const _1stColorBox = () => {
       return(
@@ -118,7 +126,10 @@ function Charge() {
     <div
       style={{
         position:'relative',
-        filter:`grayscale(${100-(count/100)}%)`
+        filter:`grayscale(${100-(count/100)}%)`,
+        overflow:'hidden',
+        width:727,
+        height:490
       }}
     >
       {_1stColorBox()} 
