@@ -1,14 +1,12 @@
 import React from 'react';
 import { storeContext } from "./context/StoreContext";
 import UnderApp from './UnderApp';
+import { MyReducer } from './context/reducer';
 
 function App(){
-    let store = {
-        charging:false,
-        setCharging:()=>{}
-    }
+    const {state , dispatch} = MyReducer();
     return(
-        <storeContext.Provider value={store}>
+        <storeContext.Provider value={{state, dispatch}}>
             <UnderApp/>
         </storeContext.Provider>
     );

@@ -1,4 +1,4 @@
-import { createContext, useCallback, useState, useContext } from 'react';
+import { createContext, useCallback, useContext, useMemo } from 'react';
 
 
 const defaultContext = {
@@ -7,16 +7,18 @@ const defaultContext = {
 };
 
 // context object
-export const storeContext = createContext(defaultContext);
+export const storeContext = createContext();
 
 // custom Hook
 export const useStore = () => {
-  const [ charging, setC ] = useState(true);
-  const setCharging = useCallback((bool) => {
-    setC(bool)
+  const { charging, setCharging } = useContext(storeContext);
+  //const [ charging, setState ] = useState(true);
+  //console.log(charging);
+  const setC = useCallback((bool) => {
+      setCharging(bool);
   },[]);
   return{
     charging,
-    setCharging
+    setC
   }
 }

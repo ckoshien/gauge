@@ -1,22 +1,35 @@
-import React, { useEffect, useState, useCallback, useContext } from 'react';
+import React, { useEffect, useState, useCallback, useContext, useReducer } from 'react';
 import { storeContext, useStore } from './context/StoreContext';
+import { MyReducer } from './context/reducer';
 
 function Charge() {
-  let { charging, setCharging } = useStore();
+  //const { charging, setC } = useStore();
+  const {state, dispatch} = MyReducer();
   const [count , setCount ] = useState(3000);
   useEffect(()=>{
-    console.log(charging);
+    //console.log(state.isCharging);
     setTimeout(()=>{
-      
-      if(count < 15000 && charging){
-        setCount(count + 10);
-      }else if(count < 3000){
-        setCharging(true);
-      }else if(!charging){
-        setCount(count - 10);
+      if(state.isCharging){
+        if(count < 15000){
+          setCount(count + 10);
+        }else{
+          dispatch({
+            type:'discharging'
+          });
+        }
+       
+      }else if(!state.isCharging){
+        if(count > 3000){
+          setCount(count - 10);
+        }else{
+          dispatch({
+            type:'charging'
+          });
+          setCount(count);
+        }
       }
     },20)
-  },[count,charging]);
+  },[count,state.isCharging]);
 
   const _1stColorBox = () => {
       return(

@@ -3,11 +3,15 @@ import Status from './Status';
 import Charge from './Charge';
 import { storeContext, useStore } from './context/StoreContext';
 import Button from './Button';
+import { MyReducer } from './context/reducer';
 
 function UnderApp() {
   const [ r, setR ] = useState(0.5);
   const [ l, setL ] = useState(0.5);
-  const {charging, setCharging} = useStore();
+  const [ filter, setFilter ] = useState('');
+  //const {charging, setCharging} = useStore();
+  const {state, dispatch} = MyReducer();
+  console.log(state.isCharging)
   const calc = useCallback((v,func)=>{
     if(v < 0.8){
       func(v + 0.01);
@@ -17,6 +21,20 @@ function UnderApp() {
       func(1);
     }
   },[]);
+  
+  useEffect(()=>{
+    if(state.isCharging){
+      setFilter('');
+    }else{
+      setFilter(`
+      invert(15%)
+      sepia(95%)
+      saturate(800%)
+      hue-rotate(300deg)
+      brightness(95%)
+      `)
+    }
+  },[state]);
 
   useEffect(()=>{
     setTimeout(()=>{
@@ -92,14 +110,7 @@ function UnderApp() {
        top:11,
        left:220,
        width:200,
-       filter: charging 
-        ? '' 
-        : `invert(15%)
-         sepia(95%)
-         saturate(800%)
-         hue-rotate(300deg)
-         brightness(95%)
-         `
+       filter: filter
      }}
      src={process.env.PUBLIC_URL+'/images/00.png'}/>
      {
