@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import Status from './Status';
 
-function App() {
+function Status() {
   const [ r, setR ] = useState(0.5);
   const [ l, setL ] = useState(0.5);
   const calc = useCallback((v,func)=>{
@@ -26,7 +25,7 @@ function App() {
   },[l])
   
   return(
-    <div className="status2">
+    <div className="status">
       <div
         style={{
           position:'absolute',
@@ -50,6 +49,7 @@ function App() {
       <img
         src={process.env.PUBLIC_URL + '/images/status_gauge.png'} 
         style={{
+          height:500,
           position:'absolute'
         }}  
       />
@@ -71,54 +71,9 @@ function App() {
      >
        {(l*100).toFixed(0)}%
      </span>
-     <div
-      style={{
-        transform:'scale(0.45)',
-        position:'absolute',
-        top:12,
-        left:8
-
-      }}
-     >
-      <Status/>      
-     </div>
-     <img 
-     style={{
-       position:'absolute',
-       top:11,
-       left:220,
-       width:200
-     }}
-     src={process.env.PUBLIC_URL+'/images/00.png'}/>
-     {
-       (r === 1 && l === 1)
-       ?
-       <div
-        style={{
-          position:'absolute',
-          background:'linear-gradient(to top, blue, #3efefc)',
-          height:80,
-          width:600,
-          top: 230,
-          left:10,
-          opacity:0.7,
-          color:'white',
-          fontSize:18,
-          textAlign:'center'
-        }}
-      >
-        O-RAISER
-        <br/>
-        <span
-          style={{
-            fontSize:36
-          }}
-        >RAISER SYS</span>
-      </div>
-      :''
-     }
+     
     </div>
   );
 }
 
-export default App;
+export default Status;
