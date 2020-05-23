@@ -5,13 +5,16 @@ import { MyReducer } from './context/reducer';
 function Charge() {
   const { state, dispatch } = useContext(storeContext);
   //const {state, dispatch} = MyReducer();
-  const [count , setCount ] = useState(3000);
+  //const [count , setCount ] = useState(3000);
   useEffect(()=>{
     //console.log(state.isCharging);
     setTimeout(()=>{
       if(state.isCharging){
-        if(count < 15000){
-          setCount(count + 10);
+        if(state.count < 15000){
+          dispatch({
+            type:'setCount',
+            count:state.count +10
+          });
         }else{
           // dispatch({
           //   type:'discharging'
@@ -19,17 +22,19 @@ function Charge() {
         }
        
       }else if(!state.isCharging){
-        if(count > 3000){
-          setCount(count - 10);
+        if(state.count > 3000){
+          dispatch({
+            type:'setCount',
+            count:state.count - 10
+          });
         }else{
           dispatch({
             type:'charging'
           });
-          setCount(count);
         }
       }
     },20)
-  },[count,state.isCharging]);
+  },[state]);
 
   const _1stColorBox = () => {
       return(
@@ -72,7 +77,7 @@ function Charge() {
           backgroundColor:'white',
           height:500,
           width:420,
-          transform: `rotate(${count/100+40}deg)`,
+          transform: `rotate(${state.count/100+40}deg)`,
           transformOrigin:'right 10px'
         }}
       ></div>
@@ -88,7 +93,7 @@ function Charge() {
           backgroundColor:'white',
           height:500,
           width:400,
-          transform: `rotate(${count/100+130}deg)`,
+          transform: `rotate(${state.count/100+130}deg)`,
           transformOrigin:'right 10px'
         }}
       ></div>
@@ -126,20 +131,20 @@ function Charge() {
   }
 
   let fontColor = useCallback(()=>{
-    if(count<10000){
+    if(state.count<10000){
       return 'black';
-    }else if(count > 10000 && count < 15000){
+    }else if(state.count > 10000 && state.count < 15000){
       return 'blue';
     }else{
       return 'red'
     }
-  },[count])
+  },[state])
 
   return (
     <div
       style={{
         position:'relative',
-        filter:`grayscale(${100-(count/100)}%)`,
+        filter:`grayscale(${100-(state.count/100)}%)`,
         overflow:'hidden',
         width:727,
         height:490
@@ -173,14 +178,14 @@ function Charge() {
             fontSize:70,
             color:fontColor()
           }}
-        >{(count/100).toString().split('.')[0]}</span>
+        >{(state.count/100).toString().split('.')[0]}</span>
         <span
           style={{
             fontSize:40,
             color:fontColor()
           }}
         >
-          .{(count/100).toFixed(2).toString().split('.')[1]}
+          .{(state.count/100).toFixed(2).toString().split('.')[1]}
          </span> 
          <span
           style={{
@@ -203,13 +208,13 @@ function Charge() {
           style={{
             fontSize:70
           }}
-        >{(count/100).toString().split('.')[0]}</span>
+        >{(state.count/100).toString().split('.')[0]}</span>
         <span
           style={{
             fontSize:40
           }}
         >
-          .{(count/100).toFixed(2).toString().split('.')[1]}/100
+          .{(state.count/100).toFixed(2).toString().split('.')[1]}/100
         </span>
       </div>
     </div>

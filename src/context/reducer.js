@@ -1,15 +1,29 @@
 import { useReducer } from "react";
 
-const initialState = {isCharging: false};
+const initialState = {
+  isCharging: false,
+  count:3000
+};
 
 function reducer(state, action) {
   switch (action.type) {
     case 'charging':
-      return {isCharging: true};
+      return {
+        ...state,
+        isCharging: true
+      };
     case 'discharging':
-      return {isCharging: false};
+      return {
+        ...state,
+        isCharging: false
+      };
+    case 'setCount':
+      return {
+        ...state,
+        count: action.count
+      };
     default:
-      return {isCharging: true};
+      return state;
   }
 }
 

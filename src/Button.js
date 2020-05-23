@@ -6,7 +6,16 @@ const Button =()=>{
     const { state, dispatch } = useContext(storeContext);
     return (
       <button
-      //disabled={}
+        style={{
+          width:60,
+          height:60,
+          backgroundColor:'gray',
+          cursor:'pointer',
+          boxShadow: '0 3px 0 0'
+        }}
+        className={
+          state.count > 10000 && state.isCharging ? 'readyTransAm':''}
+      disabled={state.count < 10000}
       onClick={()=>{
         dispatch(
           {
@@ -15,7 +24,7 @@ const Button =()=>{
         );
         console.log(state);
       }}
-     >DISCHARGE</button>
+     ></button>
     );
 
 }

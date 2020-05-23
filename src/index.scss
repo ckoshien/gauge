@@ -31,5 +31,24 @@ body{
   height: 494px;
   width: 604px;
   //position: relative;
-  //overflow: hidden;
+  overflow: hidden;
+}
+
+.readyTransAm{
+  animation: blink 1s forwards infinite;
+}
+
+@keyframes blink{
+  0%{
+      opacity: 0.5;
+  }
+  16%{
+      opacity: 1;
+  }
+  84%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0.5;
+  }
 }

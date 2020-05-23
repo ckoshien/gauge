@@ -65,7 +65,7 @@ function UnderApp() {
           position:'absolute',
           backgroundColor:'white',
           height:500,
-          width:400,
+          width:200,
           top:-100-300*l,
           left:400
         }}
@@ -94,6 +94,17 @@ function UnderApp() {
      >
        {(l*100).toFixed(0)}%
      </span>
+     <span
+      style={{
+        position:'absolute',
+        fontSize:18,
+        fontWeight:'bold',
+        top:465,
+        left:210
+      }}
+     >
+       00-RAISER SYSTEM
+     </span>
      <div
       style={{
         transform:'scale(0.45)',
@@ -108,9 +119,9 @@ function UnderApp() {
      <img 
      style={{
        position:'absolute',
-       top:11,
-       left:220,
-       width:200,
+       top:-40,
+       left:195,
+       width:240,
        filter: filter
      }}
      src={process.env.PUBLIC_URL+'/images/00.png'}/>
@@ -128,13 +139,13 @@ function UnderApp() {
           width:600,
           top: 230,
           left:10,
-          opacity:0.7,
+          opacity:0.8,
           color:'white',
           fontSize:18,
           textAlign:'center'
         }}
       >
-        {state.isCharging ? 'O-RAISER' :''}
+        {state.isCharging ? 'O-RAISER' :'00-RAISER'}
         <br/>
         <span
           style={{
@@ -156,7 +167,9 @@ function UnderApp() {
      </div>
      <div
       style={{
-        position:'absolute'
+        position:'absolute',
+        top:400,
+        left:600
       }}
      >
      <Button/>

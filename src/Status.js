@@ -60,7 +60,8 @@ function Status() {
       style={{
         position:'absolute',
         top:150,
-        left:200
+        left:200,
+        fontSize:20
       }}
      >
        {(r*100).toFixed(0)}%
@@ -69,12 +70,23 @@ function Status() {
       style={{
         position:'absolute',
         top:150,
-        left:640
+        left:640,
+        fontSize:20
       }}
      >
        {(l*100).toFixed(0)}%
      </span>
-     
+     <span
+      style={{
+        position:'absolute',
+        fontSize:32,
+        fontWeight:'bold',
+        bottom:10,
+        left:215
+      }}
+     >
+       TWINDRIVE
+     </span>
     </div>
   );
 }
