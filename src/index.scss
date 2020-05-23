@@ -14,6 +14,7 @@ body{
   width: 604px;
   position: relative;
   overflow: hidden;
+  animation: fadeIn 1s forwards linear;
 }
 
 .disCharge{
@@ -24,12 +25,14 @@ body{
     position: relative;
     overflow: hidden;
   }
+  animation: fadeIn 1s forwards linear;
 }
 
 .status2{
   background: linear-gradient(to top, #3efefc 30%,blue);
   height: 494px;
   width: 604px;
+  animation: fadeIn 1s forwards linear;
   //position: relative;
   overflow: hidden;
 }
@@ -50,5 +53,14 @@ body{
   }
   100%{
       opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn{
+  0%{
+      opacity: 0;
+  }
+  100%{
+      opacity: 1;
   }
 }

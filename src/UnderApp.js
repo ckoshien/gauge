@@ -149,7 +149,8 @@ function UnderApp() {
         <br/>
         <span
           style={{
-            fontSize:36
+            fontSize:36,
+            letterSpacing:10
           }}
         >{state.isCharging ? 'RAISER SYS':'TRANS-AM BURST'}</span>
       </div>
