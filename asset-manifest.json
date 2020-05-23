@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/gauge/static/css/main.cf21df8f.chunk.css",
-    "main.js": "/gauge/static/js/main.fa80ae11.chunk.js",
+    "main.css": "/gauge/static/css/main.7e986cec.chunk.css",
+    "main.js": "/gauge/static/js/main.99b5702b.chunk.js",
     "runtime-main.js": "/gauge/static/js/runtime-main.78eb4e82.js",
-    "static/js/2.cf9805f8.chunk.js": "/gauge/static/js/2.cf9805f8.chunk.js",
+    "static/js/2.4e2fda1f.chunk.js": "/gauge/static/js/2.4e2fda1f.chunk.js",
     "index.html": "/gauge/index.html",
-    "precache-manifest.fd416f1d9325ae67385ae7207402ca81.js": "/gauge/precache-manifest.fd416f1d9325ae67385ae7207402ca81.js",
+    "precache-manifest.856319f56591a9ca6269459c5a02b416.js": "/gauge/precache-manifest.856319f56591a9ca6269459c5a02b416.js",
     "service-worker.js": "/gauge/service-worker.js",
-    "static/js/2.cf9805f8.chunk.js.LICENSE.txt": "/gauge/static/js/2.cf9805f8.chunk.js.LICENSE.txt"
+    "static/js/2.4e2fda1f.chunk.js.LICENSE.txt": "/gauge/static/js/2.4e2fda1f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.78eb4e82.js",
-    "static/js/2.cf9805f8.chunk.js",
-    "static/css/main.cf21df8f.chunk.css",
-    "static/js/main.fa80ae11.chunk.js"
+    "static/js/2.4e2fda1f.chunk.js",
+    "static/css/main.7e986cec.chunk.css",
+    "static/js/main.99b5702b.chunk.js"
   ]
 }
