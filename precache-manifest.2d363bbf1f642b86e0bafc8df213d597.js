@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e2d14f53b2a1cfbe712a4979d8d15407",
+    "revision": "904f17b291b5ae032e075338497a16b3",
     "url": "/gauge/index.html"
   },
   {
