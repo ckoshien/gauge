@@ -10,8 +10,9 @@ function UnderApp() {
   const [ l, setL ] = useState(0.5);
   const [ filter, setFilter ] = useState('');
   //const {charging, setCharging} = useStore();
-  const {state, dispatch} = MyReducer();
-  console.log(state.isCharging)
+  //const {state, dispatch} = MyReducer();
+  const {state , dispatch} = useContext(storeContext);
+  //console.log(state,dispatch)
   const calc = useCallback((v,func)=>{
     if(v < 0.8){
       func(v + 0.01);
@@ -48,7 +49,7 @@ function UnderApp() {
   },[l])
   
   return(
-    <div className="status2">
+    <div className={state.isCharging? 'status2':'disCharge'}>
       <div
         style={{
           position:'absolute',
@@ -119,7 +120,10 @@ function UnderApp() {
        <div
         style={{
           position:'absolute',
-          background:'linear-gradient(to top, blue, #3efefc)',
+          background: 
+          state.isCharging 
+          ? 'linear-gradient(to top, blue, #3efefc)'
+          : 'linear-gradient(to top, #e90d02, #e90d02)', 
           height:80,
           width:600,
           top: 230,
@@ -130,13 +134,13 @@ function UnderApp() {
           textAlign:'center'
         }}
       >
-        O-RAISER
+        {state.isCharging ? 'O-RAISER' :''}
         <br/>
         <span
           style={{
             fontSize:36
           }}
-        >RAISER SYS</span>
+        >{state.isCharging ? 'RAISER SYS':'TRANS-AM BURST'}</span>
       </div>
       :''
      }

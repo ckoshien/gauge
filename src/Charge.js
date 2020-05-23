@@ -3,8 +3,8 @@ import { storeContext, useStore } from './context/StoreContext';
 import { MyReducer } from './context/reducer';
 
 function Charge() {
-  //const { charging, setC } = useStore();
-  const {state, dispatch} = MyReducer();
+  const { state, dispatch } = useContext(storeContext);
+  //const {state, dispatch} = MyReducer();
   const [count , setCount ] = useState(3000);
   useEffect(()=>{
     //console.log(state.isCharging);
@@ -13,9 +13,9 @@ function Charge() {
         if(count < 15000){
           setCount(count + 10);
         }else{
-          dispatch({
-            type:'discharging'
-          });
+          // dispatch({
+          //   type:'discharging'
+          // });
         }
        
       }else if(!state.isCharging){

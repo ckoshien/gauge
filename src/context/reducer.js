@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-const initialState = {isCharging: true};
+const initialState = {isCharging: false};
 
 function reducer(state, action) {
   switch (action.type) {
@@ -9,7 +9,7 @@ function reducer(state, action) {
     case 'discharging':
       return {isCharging: false};
     default:
-      break;
+      return {isCharging: true};
   }
 }
 

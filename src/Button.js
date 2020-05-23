@@ -1,12 +1,12 @@
 import { useStore, storeContext } from "./context/StoreContext";
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import { MyReducer } from "./context/reducer";
 
 const Button =()=>{
-    //const { charging, setC } = useStore();
-    const { state ,dispatch } = MyReducer();
+    const { state, dispatch } = useContext(storeContext);
     return (
       <button
+      //disabled={}
       onClick={()=>{
         dispatch(
           {

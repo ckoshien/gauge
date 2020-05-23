@@ -1,6 +1,9 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
+import {storeContext} from './context/StoreContext';
+
 
 function Status() {
+  const {state, dispatch} = useContext(storeContext);
   const [ r, setR ] = useState(0.5);
   const [ l, setL ] = useState(0.5);
   const calc = useCallback((v,func)=>{
@@ -25,7 +28,7 @@ function Status() {
   },[l])
   
   return(
-    <div className="status">
+    <div className={state.isCharging ? 'status':'disCharge _1'}>
       <div
         style={{
           position:'absolute',

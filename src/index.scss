@@ -16,6 +16,16 @@ body{
   overflow: hidden;
 }
 
+.disCharge{
+  background: linear-gradient(to top, #FFFFFF, #e94099 30%,red 50%, #f0a041 60%);
+  height: 494px;
+  width: 604px;
+  &._1{
+    position: relative;
+    overflow: hidden;
+  }
+}
+
 .status2{
   background: linear-gradient(to top, #3efefc 30%,blue);
   height: 494px;
